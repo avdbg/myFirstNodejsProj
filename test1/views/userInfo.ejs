@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>编辑用户 <%= username %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>编辑用户 <%= username %></h1>
+    <form action="/updateUserInfo" method="post">
+        <table width="100%">
+            <thead>用户名</thead> <thead>密码</thead> <thead>权限等级</thead>
+            <tbody>
+            <tr>
+                <td><input name="username" type="text" value="<%=username%>" /></td>
+                <td><input name="password" type="text" value="<%=password%>" /></td>
+                <!--<td><input type="text" value="<%=level%>" /></td>-->
+                <td>
+                    <select name="level">
+                        <%if(level === 1){%>
+                        <option value="1" selected="selected">超级管理员</option>
+                        <option value="2">管理员</option>
+                        <option value="3">普通用户</option>
+                        <%}else if(level === 2){%>
+                        <option value="1">超级管理员</option>
+                        <option value="2" selected="selected">管理员</option>
+                        <option value="3">普通用户</option>
+                        <%}else{%>
+                        <option value="1">超级管理员</option>
+                        <option value="2">管理员</option>
+                        <option value="3" selected="selected">普通用户</option>
+                        <%}%>
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <input name="oldName" type="hidden" value="<%=username%>" />
+        <input type="submit" />
+    </form>
+  </body>
+</html>

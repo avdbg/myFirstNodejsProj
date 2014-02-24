@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>添加用户</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>添加用户</h1>
+    <form action="/addUser" method="post">
+        用户名:
+        <input type="text" name="username" />
+        <br />
+        密码:
+        <input type="password" name="password" />
+        权限:
+        <select name="level">
+            <option value="1">超级管理员</option>
+            <option value="2">管理员</option>
+            <option value="3">普通用户</option>
+        </select>
+        <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

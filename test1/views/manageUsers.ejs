@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>用户管理</title>
+    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+  </head>
+  <body>
+    <p>共有<%=users.length%>个账号</p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/addUser">添加用户</a><br>
+    <table width="100%">
+        <thead>用户名</thead><thead>密码</thead><thead>权限</thead><thead>删除</thead>
+        <tbody>
+            <%users.forEach(function(user){%>
+                <tr>
+                    <td><a href="/userInfo?username=<%=user.username%>"><%=user.username%></a></td> <td><%=user.password%></td> <td><%=user.level%></td><td><a href="/deleteUser?username=<%=user.username%>">删除</a></td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>欢迎 <%= username %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script type="text/javascript">
+          function changeFrameSrc(src)
+          {
+              document.getElementById('showFrame').src = src;
+          }
+          function frameOnLoad(obj)
+          {
+              obj.style.height = window.innerHeight + 'px';
+          }
+      </script>
+  </head>
+
+  <body>
+      <table width="70%">
+          <tbody>
+          <tr>
+              <td colspan="2"><h2>欢迎 <%= username %></h2></td>
+          </tr>
+            <tr>
+                <td width="200" valign="top">
+                    <br />
+                    <br />
+                    <li><a href="javascript:void(0);" onclick="changeFrameSrc('/test.html');return false;">主页</a></li>
+                    <%if (level === 1){%>
+                    <li><a href="javascript:void(0);" onclick="changeFrameSrc('/manageUsers');return false;">用户管理</a></li>
+                    <%}%>
+                    <li><a href="/logout">退出</a></li>
+                </td>
+                <td>
+                    <iframe src="/test.html" frameborder="0" id="showFrame" width="100%" onload="frameOnLoad(this);"> </iframe>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+  </body>
+</html>
